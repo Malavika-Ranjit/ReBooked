@@ -7,6 +7,7 @@ import Signup from "./components/Auth/Signup";
 import Dashboard from "./pages/Dashboard";
 import Listings from "./pages/Listings";
 import Transactions from "./pages/Transactions";
+import CreateListing from "./pages/CreateListing";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/create-listing" element={<CreateListing />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/transactions" element={<Transactions />} />
       </Routes>

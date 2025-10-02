@@ -18,19 +18,36 @@ export default function Signup() {
     }
 
     const user = data.user;
-    if (user) {
-      await supabase.from("users").insert([
-        { user_id: user.id, name: name, email: email }
-      ]);
+    //if (user) {
+     // await supabase.from("users").insert([
+      //  { user_id: user.id, name: name, email: email }
+     // ]);
 
-      if (insertError) {
+     // if (insertError) {
+     // console.error("Error inserting into users:", insertError.message);
+     // alert("Database insert failed: " + insertError.message);
+     // }
+   // }
+
+    //alert("Signup successful! Check your email to confirm.");
+    //navigate("/dashboard"); // redirect after signup
+
+    if (user) {
+    // ✅ FIX: properly capture insertError
+    const { error: insertError } = await supabase.from("users").insert([
+      { user_id: user.id, name, email }
+    ]);
+
+    if (insertError) {
       console.error("Error inserting into users:", insertError.message);
       alert("Database insert failed: " + insertError.message);
-      }
     }
+  }
 
-    alert("Signup successful! Check your email to confirm.");
-    navigate("/dashboard"); // redirect after signup
+  // ✅ FIX: redirect only if session exists (since you disabled email confirmation, it will exist)
+  if (data.session) {
+    navigate("/dashboard");
+  }
   };
 
   return (
