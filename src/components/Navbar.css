@@ -1,0 +1,56 @@
+/* Navbar container */
+nav {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  background-color: #1f2937; 
+  color: white; 
+  padding: 1rem; 
+}
+
+.navtitle{
+    font-size: 40px;
+}
+
+/* Container for links and buttons */
+.space-x-4 {
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+
+/* Simulate Tailwind's space-x-4 horizontal spacing */
+.space-x-4 > * + * {
+  margin-left: 3rem; 
+}
+
+/* Links styles */
+.space-x-4 a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.space-x-4 a:hover {
+  color: #facc15; 
+}
+
+/* Logout button */
+.space-x-4 button {
+  background-color: #ef4444; 
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.space-x-4 button:hover {
+  background-color: #dc2626; 
+}
+
+/* Optional: make the "Hi, username" text stand out */
+.space-x-4 a:first-child {
+  font-weight: 500;
+}
