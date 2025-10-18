@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { supabase } from "../supabaseClient";
 import { useEffect, useState } from "react";
+import "./Navbar.css";
 
 export default function Navbar() {
   const { user } = useAuth();
@@ -27,7 +28,9 @@ export default function Navbar() {
   };
 
   return (
+    
     <nav className="bg-gray-800 p-4 text-white flex justify-between items-center">
+      <div className="navtitle">ReBooked</div>
       <div className="space-x-4">
         <Link to="/" className="hover:text-yellow-400">Home</Link>
         <Link to="/about" className="hover:text-yellow-400">About</Link>
