@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Listings from "./pages/Listings";
 import Transactions from "./pages/Transactions";
 import CreateListing from "./pages/CreateListing";
+import MyListings from "./pages/MyListings";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/create-listing" element={<CreateListing />} />
         <Route path="/listings" element={<Listings />} />
         <Route path="/transactions" element={<Transactions />} />
+        <Route path="/mylistings" element={<MyListings />} />
       </Routes>
     </Router>
   );
