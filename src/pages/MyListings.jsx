@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 import { useAuth } from "../context/AuthContext";
+import "./Listings.css";
 
 export default function MyListings() {
   const { user } = useAuth();

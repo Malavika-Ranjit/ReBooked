@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@700&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #f9fafb, #e0f2fe);
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  font-size: 48px;
+  color: #1e3a8a;
+  margin: 60px 0 30px 0;
+}
+
+input[type="text"] {
+  display: block;
+  width: 380px;
+  max-width: 90%;
+  margin: 0 auto 50px auto;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+input[type="text"]:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+}
+
+/* 🔥 Proper Card Grid Layout */
+.marketplace-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px 40px 80px 40px;
+}
+
+/* 📦 Each Book Box */
+.book-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  min-height: 320px;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  border-top: 5px solid #2563eb;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+
+.book-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.book-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  color: #1e3a8a;
+  margin: 0 0 8px 0;
+}
+
+.book-card p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 24px;
+  color: #16a34a;
+  font-weight: 700;
+  margin: 10px 0 6px 0;
+}
+
+.status-available,
+.status-sold {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.status-available {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.status-sold {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.book-card button {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 0;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-card button:hover {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .marketplace-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .book-card {
+    width: 90%;
+    max-width: 400px;
+  }
+}
