@@ -1,3 +1,4 @@
+import "./Signup.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../supabaseClient";
@@ -18,68 +19,54 @@ export default function Signup() {
     }
 
     const user = data.user;
-    //if (user) {
-     // await supabase.from("users").insert([
-      //  { user_id: user.id, name: name, email: email }
-     // ]);
-
-     // if (insertError) {
-     // console.error("Error inserting into users:", insertError.message);
-     // alert("Database insert failed: " + insertError.message);
-     // }
-   // }
-
-    //alert("Signup successful! Check your email to confirm.");
-    //navigate("/dashboard"); // redirect after signup
-
     if (user) {
-    // ✅ FIX: properly capture insertError
-    const { error: insertError } = await supabase.from("users").insert([
-      { user_id: user.id, name, email }
-    ]);
-
-    if (insertError) {
-      console.error("Error inserting into users:", insertError.message);
-      alert("Database insert failed: " + insertError.message);
+      const { error: insertError } = await supabase
+        .from("users")
+        .insert([{ user_id: user.id, name, email }]);
+      if (insertError) {
+        console.error("Error inserting into users:", insertError.message);
+        alert("Database insert failed: " + insertError.message);
+      }
     }
-  }
 
-  // ✅ FIX: redirect only if session exists (since you disabled email confirmation, it will exist)
-  if (data.session) {
-    navigate("/dashboard");
-  }
+    if (data.session) {
+      navigate("/dashboard");
+    }
   };
 
   return (
-    <div className="flex justify-center items-center h-[80vh]">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
-        <form onSubmit={handleSignup} className="space-y-4">
+    <div className="signup-container">
+      <div className="signup-card">
+        <h2 className="signup-title">Register</h2>
+        <form className="signup-form" onSubmit={handleSignup}>
           <input
+            className="signup-input"
             type="text"
             placeholder="Name"
-            className="w-full border px-3 py-2"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <input
+            className="signup-input"
             type="email"
             placeholder="Email"
-            className="w-full border px-3 py-2"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
+            className="signup-input"
             type="password"
             placeholder="Password"
-            className="w-full border px-3 py-2"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" className="w-full bg-green-600 text-white py-2 rounded">
+          <button type="submit" className="signup-button">
             Register
           </button>
         </form>
+        <div className="signup-footer">
+          Already have an account? <a href="/login">Login</a>
+        </div>
       </div>
     </div>
   );

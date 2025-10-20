@@ -1,0 +1,95 @@
+/* Signup.css */
+
+/* Page container */
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #111827; /* dark background for harmony with navbar */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Card */
+.signup-card {
+  background: #1f2937; /* same as navbar */
+  color: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  width: 380px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.signup-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Title */
+.signup-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #facc15; /* warm gold accent */
+  margin-bottom: 1.5rem;
+}
+
+/* Form */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Input fields */
+.signup-input {
+  background-color: #374151;
+  color: white;
+  border: 1px solid #4b5563;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.signup-input:focus {
+  border-color: #facc15;
+  background-color: #4b5563;
+  outline: none;
+}
+
+/* Button */
+.signup-button {
+  background-color: #facc15;
+  color: #1f2937;
+  font-weight: 600;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.signup-button:hover {
+  background-color: #eab308; /* slightly darker gold */
+  transform: scale(1.03);
+}
+
+/* Footer link */
+.signup-footer {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}
+
+.signup-footer a {
+  color: #facc15;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-footer a:hover {
+  text-decoration: underline;
+  color: #fde68a;
+}
