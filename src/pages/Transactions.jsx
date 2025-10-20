@@ -225,33 +225,92 @@ export default function Transactions() {
 
   if (!user)
     return <p className="p-6">Please log in to view your transactions.</p>;
+  const containerStyle = {
+    padding: "24px",
+    display: "flex",
+    justifyContent: "space-between",
+    gap: "16px",
+  };
+
+  const columnStyle = {
+    flex: "1",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+    padding: "16px",
+    backgroundColor: "#fff",
+    boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+  };
+
+  const titleStyle = {
+    fontSize: "1.55rem",
+    fontWeight: "600",
+    marginBottom: "12px",
+  };
+
+  const sectionTitle = {
+    fontSize: "2rem",
+    fontWeight: "bold",
+    marginBottom: "24px",
+    textAlign: "center",
+
+  };
+
+  const buttonStyle = {
+    padding: "6px 12px",
+    borderRadius: "6px",
+    border: "none",
+    cursor: "pointer",
+    fontSize: "0.9rem",
+  };
+
+  const approveButton = {
+    ...buttonStyle,
+    backgroundColor: "#16a34a",
+    color: "white",
+  };
+
+  const cancelButton = {
+    ...buttonStyle,
+    backgroundColor: "#dc2626",
+    color: "white",
+  };
+
+  const undoButton = {
+    ...buttonStyle,
+    backgroundColor: "#f87171",
+    color: "white",
+  };
 
   return (
-    <div className="p-6 space-y-8">
-      <h1 className="text-3xl font-bold mb-4 text-center">Transactions</h1>
-
+    <div style={{ padding: "24px" }}>
+      <h1 style={sectionTitle}>Transactions</h1>
+      <div style={containerStyle}>
       {/* Pending Approvals (as seller) */}
-      <div>
-        <h2 className="text-xl font-semibold mb-2">📝 Pending Approvals (as Seller)</h2>
+      <div style={columnStyle}>
+        <h2 style={titleStyle}>📝 Pending Approvals (as Seller)</h2>
         {pendingApprovals.length === 0 ? (
-          <p className="text-gray-500">No pending approvals.</p>
+          <p style={{ color: "#6b7280" }}>No pending approvals.</p>
         ) : (
-          <ul className="space-y-2">
+          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {pendingApprovals.map((t) => (
-              <li key={t.transaction_id} className="border p-2 rounded flex justify-between items-center">
+              <li key={t.transaction_id} style={{
+                    borderBottom: "1px solid #eee",
+                    paddingBottom: "8px",
+                    marginBottom: "8px",
+                  }}>
                 <div>
                   <strong>{t.listings.books.title}</strong> - ₹{t.listings.price} by buyer: {t.buyer_id}
                 </div>
-                <div className="space-x-2">
+                <div style={{ marginTop: "6px" }}>
                   <button
                     onClick={() => approveTransaction(t.transaction_id, t.listing_id)}
-                    className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
+                    style={approveButton}
                   >
                     Approve
                   </button>
                   <button
                     onClick={() => cancelTransaction(t.transaction_id)}
-                    className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
+                    style={cancelButton}
                   >
                     Cancel
                   </button>
@@ -261,49 +320,81 @@ export default function Transactions() {
           </ul>
         )}
       </div>
-
+    
       {/* Pending Requests (as buyer) */}
-      <div>
-        <h2 className="text-xl font-semibold mb-2">⏳ Pending Requests (as Buyer)</h2>
+      <div style={columnStyle}>
+        <h2 style={titleStyle}>⏳ Pending Requests (as Buyer)</h2>
         {pendingRequests.length === 0 ? (
-          <p className="text-gray-500">No pending requests.</p>
+          <p style={{ color: "#6b7280" }}>No pending requests.</p>
         ) : (
-          <ul className="space-y-2">
+          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {pendingRequests.map((t) => (
-              <li key={t.transaction_id} className="border p-2 rounded flex justify-between items-center">
-                <div>
-                  <strong>{t.listings.books.title}</strong> - ₹{t.listings.price} by seller: {t.seller_id}
-                </div>
-                <button
-                  onClick={() => cancelTransaction(t.transaction_id)}
-                  className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
-                >
-                  Undo Request
-                </button>
-              </li>
+             <li
+  key={t.transaction_id}
+  style={{
+    borderBottom: "1px solid #eee",
+    paddingBottom: "8px",
+    marginBottom: "8px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+  }}
+>
+  <div>
+    <strong style={{ fontWeight: "600", color: "#111827" }}>
+      {t.listings.books.title}
+    </strong>{" "}
+    <span style={{ color: "#374151" }}>- ₹{t.listings.price}</span>{" "}
+    <span style={{ color: "#6b7280" }}>by seller: {t.seller_id}</span>
+  </div>
+  <button
+    onClick={() => cancelTransaction(t.transaction_id)}
+    style={
+      cancelButton
+    }
+    onMouseOver={(e) => (e.target.style.backgroundColor = "#b91c1c")}
+    onMouseOut={(e) => (e.target.style.backgroundColor = "#e75959ff")}
+  >
+    Undo Request
+  </button>
+</li>
+
             ))}
           </ul>
         )}
       </div>
 
       {/* Completed Transactions */}
-      <div>
-        <h2 className="text-xl font-semibold mb-2">✅ Completed Transactions</h2>
+      <div style={columnStyle}>
+        <h2 style={titleStyle}>✅ Completed Transactions</h2>
         {completedTransactions.length === 0 ? (
-          <p className="text-gray-500">No completed transactions.</p>
+          <p style={{ color: "#6b7280" }}>No completed transactions.</p>
         ) : (
-          <ul className="space-y-2">
+          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {completedTransactions.map((t) => (
-              <li key={t.transaction_id} className="border p-2 rounded">
+              <li key={t.transaction_id} style={{
+                    borderBottom: "1px solid #eee",
+                    paddingBottom: "8px",
+                    marginBottom: "8px",
+                  }}>
                 <div>
-                  <strong>{t.listings.books.title}</strong> - ₹{t.listings.price} 
-                  {t.buyer_id === user.id ? " (You bought this)" : " (You sold this)"}
-                </div>
+  <strong style={{ fontWeight: "600", color: "#111827" }}>
+    {t.listings.books.title}
+  </strong>{" "}
+  <span style={{ color: "#374151" }}>- ₹{t.listings.price}</span>{" "}
+  {t.buyer_id === user.id ? (
+    <span style={{ color: "#16a34a", fontWeight: "500" }}>(You bought this)</span>
+  ) : (
+    <span style={{ color: "#2563eb", fontWeight: "500" }}>(You sold this)</span>
+  )}
+</div>
+
               </li>
             ))}
           </ul>
         )}
       </div>
+    </div>
     </div>
   );
 }
