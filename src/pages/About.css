@@ -1,0 +1,73 @@
+/* About.css */
+
+/* Page container */
+.about-container {
+  min-height: 100vh;
+  background-color: #111827; /* dark background to match auth pages */
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+/* Title */
+.about-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #facc15; /* warm gold accent */
+  margin-bottom: 1rem;
+}
+
+/* Subtitle */
+.about-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #d1d5db; /* light gray text */
+  margin-bottom: 2rem;
+  max-width: 700px;
+}
+
+/* Content cards */
+.about-card {
+  background-color: #1f2937; /* same as signup/login cards */
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.about-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Card title */
+.about-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #facc15;
+  margin-bottom: 1rem;
+}
+
+/* Card text */
+.about-card-text {
+  font-size: 1rem;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+/* Footer link (optional) */
+.about-footer a {
+  color: #facc15;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.about-footer a:hover {
+  text-decoration: underline;
+  color: #fde68a;
+}
