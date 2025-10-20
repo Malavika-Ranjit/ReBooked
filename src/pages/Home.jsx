@@ -33,29 +33,32 @@ export default function Home() {
     minHeight: "100vh",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-start", // position higher
+    justifyContent: "flex-start",
     alignItems: "center",
     fontFamily: "'Dancing Script', cursive",
-    color: "white",
-    backgroundImage: `url("/background.jpg.png")`, // your image
+    backgroundImage: `url("/background.jpg.png")`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    paddingTop: "8vh", // push content a little down from top
+    paddingTop: "8vh",
     position: "relative",
   };
 
   const headingStyle = {
-    fontSize: "6rem", // bigger
-    fontFamily: "'Pacifico', cursive", // playful handwriting
-    textShadow: "3px 3px 8px rgba(0,0,0,0.7)",
+    fontSize: "7rem", // even bigger
+    fontFamily: "'Pacifico', cursive",
+    fontWeight: "900", // thicker
+    color: "#001f3f", // Dark Navya Blue
+    textShadow: "4px 4px 10px rgba(0,0,0,0.7)",
     marginBottom: "0.5em",
   };
 
   const sublineStyle = {
-    fontSize: "2.5rem", // bigger subline
+    fontSize: "3rem", // bigger than before
     fontFamily: "'Dancing Script', cursive",
-    textShadow: "2px 2px 6px rgba(0,0,0,0.6)",
+    fontWeight: "700", // slightly lighter than header
+    color: "#0a0a0a", // Navya Black
+    textShadow: "2px 2px 6px rgba(0,0,0,0.4)",
     marginBottom: "2em",
   };
 
